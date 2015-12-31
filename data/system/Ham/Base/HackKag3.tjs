@@ -191,12 +191,7 @@ kag.bgm.restore = function(dic)
 	stopFade();
 	if(dic.currentStorage != "") {
 		tf.bgm_restored = dic.currentStorage;
-		if (!MBSystem.blDivingManagerStoreState) {
-			play(%[ storage : dic.currentStorage, loop : true]);
-		}
-		else {
-			stop();
-		}
+		play(%[ storage : dic.currentStorage, loop : true]);
 	}
 	else {
 		stop();
