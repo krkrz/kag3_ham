@@ -172,8 +172,8 @@ class MBHistoryLayer extends HistoryLayer
 		
 		// 背景画像読み込み
 		var sc = sysfunc.getScreenScale(true);
-		var nw = Math.ceil(sysvalue.RegularScreenSize.width * sc);
-		var nh = Math.ceil(sysvalue.RegularScreenSize.height * sc);
+		var nw = Math.ceil(MBGraphicPref.RegularScreenSize.width * sc);
+		var nh = Math.ceil(MBGraphicPref.RegularScreenSize.height * sc);
 		var bmp = new Bitmap(sysfunc.getPathImage(bgImage));
 		operateStretch(
 			0, 0, nw, nh,
