@@ -294,6 +294,9 @@ if (MBSystemPref.enableQuickSave) {
 	// 設定時
 	kag.tempDisableStore = function(elm)
 	{
+		// 栞の状態を見ておく
+		tf.currentEnabled = storeEnabled;
+		
 		// 栞を一時的に保存不可能にする
 		storeEnabled = true;
 		if(elm.store === void) {
@@ -348,9 +351,13 @@ if (MBSystemPref.enableQuickSave) {
 			if(recordHistoryOfStore == 1) // 1 : 保存可能なラベルごと
 				setToRecordHistory();
 			
-			// クイックセーブメニューを復帰
-			_QuickSaves.fore.setActiveness(storeLabelPassed);
-			_QuickSaves.back.setActiveness(storeLabelPassed);
+			if (tf.currentEnabled) {
+				// クイックセーブメニューを復帰
+				_QuickSaves.fore.setActiveness(storeLabelPassed);
+				_QuickSaves.back.setActiveness(storeLabelPassed);
+			}
+			
+			delete tf.currentEnabled;
 		}
 		return true;
 	} incontextof kag;
