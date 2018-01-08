@@ -146,6 +146,21 @@ MBGraphicPref.BookmarkSelectorTextColor = 0xf0f0f0;
 // ◆ セーブデータパネルにヒストリを表示するかどうか
 MBGraphicPref.BookmarkSelectorHistoryVisible = true;
 
+// ◆ セーブデータの選択消去を有効にするかどうか。
+/*
+	この機能を使用する場合は ktl_local_files.dll が別途必要です。
+	32bit版の場合は次のページから入手できます：
+	http://www.boleros.x0.com/doc/ktlwiki/index.php?KTLWiki#downloads-
+	※plugin.zipをダウンロードして展開した中に含まれています。
+	
+	64bit版の場合はGitHubのKTLリポジトリからソースを取得の上、
+	適宜ビルドしてください。
+	
+	どちらの場合も実行パスの適切なプラグイン用フォルダに格納してください。
+	KTL作者のボレロ村上氏に厚く御礼申し上げます。
+*/
+MBGraphicPref.BookmarkDeleterEnabled = false;
+
 // Config.tjsの設定をいくつか上書きする
 
 // ◆ フリーセーブ

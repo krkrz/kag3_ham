@@ -611,6 +611,9 @@ class MBBookMarkRestore extends MBComponentLayer
 	function removeSaveDate(num)
 	{
 		// 指定番号のセーブデータを消去する
+		if (!MBGraphicPref.BookmarkDeleterEnabled) {
+			return;
+		}
 		
 		if (num < 0 || num >= intSavePanels * intSaveSlots) {
 			return;

@@ -103,17 +103,26 @@ class MBBookMarkSelectPanel extends MBSelectItem
 			objLockButton.setPos(10, height - (objLockButton.height + 10));
 			
 			// ゴミ箱アイコン
-			if (objTrashIcon === void) {
-				objTrashIcon = new MBButton(window, this);
-				objTrashIcon.loadImages(sysfunc.getPathImage('bookmark/bt_trash'));
-				objTrashIcon.setPos(
-					width - (objTrashIcon.width + 10),
-					height - (objTrashIcon.height + 10)
-				);
-				objTrashIcon.visible = true;
-			}
-			else {
-				objTrashIcon.visible = true;
+			var otlw = -12;
+			var otlh = 19;
+			var otlt = height - 19;
+			if (MBGraphicPref.BookmarkDeleterEnabled) {
+				if (objTrashIcon === void) {
+					objTrashIcon = new MBButton(window, this);
+					objTrashIcon.loadImages(sysfunc.getPathImage('bookmark/bt_trash'));
+					objTrashIcon.setPos(
+						width - (objTrashIcon.width + 10),
+						height - (objTrashIcon.height + 10)
+					);
+					objTrashIcon.visible = true;
+				}
+				else {
+					objTrashIcon.visible = true;
+				}
+				
+				otlw = objTrashIcon.width;
+				otlh = objTrashIcon.height;
+				otlt = objTrashIcon.top;
 			}
 			
 			// 最終使用表示アイコン
@@ -122,8 +131,8 @@ class MBBookMarkSelectPanel extends MBSelectItem
 				objLastUsedIcon.loadImages(%[storage : sysfunc.getPathImage(strLastUsedIconFile)]);
 				objLastUsedIcon.setSizeToImageSize();
 				objLastUsedIcon.setPos(
-					width - (objTrashIcon.width + objLastUsedIcon.width + 15),
-					objTrashIcon.top + (objTrashIcon.height - objLastUsedIcon.height) * 0.5
+					width - (otlw + objLastUsedIcon.width + 15),
+					height - (objLastUsedIcon.height + 3)
 				);
 				objLastUsedIcon.hitType      = htMask;
 				objLastUsedIcon.hitThreshold = 256;

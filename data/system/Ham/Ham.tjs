@@ -29,9 +29,12 @@ var TAG = kag.tagHandlers;
 
 
 //==============================================================================
-// 使用する吉里吉里プラグイン
+// 使用する吉里吉里拡張プラグイン
 
-Plugins.link(MBBasePath + "krplugin/ktl_local_files.dll");
+// セーブ選択消去用 by bolero-MURAKAMI
+if (MBGraphicPref.BookmarkDeleterEnabled) {
+	Plugins.link("ktl_local_files.dll");
+}
 
 
 //==============================================================================
